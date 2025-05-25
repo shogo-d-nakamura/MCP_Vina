@@ -15,7 +15,8 @@ A Model Context Protocol (MCP) server for molecular docking simulation using Aut
 
 ### Prerequisites
 
-1. **AutoDock Vina**: Install AutoDock Vina for molecular docking from https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.2/vina_1.2.2_macos_arm64
+1. **AutoDock Vina**: Install AutoDock Vina for molecular docking from https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.2/vina_1.2.2_macos_arm64.
+   
    Please make sure that the vina command is in your PATH.
    ```bash
     which vina
@@ -130,7 +131,24 @@ config = {
 
 ## MCP Configuration
 
-To use this server with an MCP client, use the configuration in [config file](./calude-desktop-config.json)
+To use this server with an MCP client, use the configuration in [config file](./calude-desktop-config.json).
+
+```json
+{
+  "mcpServers": {
+    "molecular-docking": {
+      "command": "uv",
+      "args": [
+        "--directory", "/PATH/TO/molDocking",
+        "run", "server.py"
+      ],
+      "env": {
+        "UV_PROJECT_ENVIRONMENT": "/PATH/TO/molDocking/.venv"
+      }
+    }
+  }
+}
+```
 
 
 ## File Structure
