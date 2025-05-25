@@ -15,24 +15,16 @@ A Model Context Protocol (MCP) server for molecular docking simulation using Aut
 
 ### Prerequisites
 
-1. **AutoDock Vina**: Install AutoDock Vina for molecular docking
+1. **AutoDock Vina**: Install AutoDock Vina for molecular docking from https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.2/vina_1.2.2_macos_arm64
+   Please make sure that the vina command is in your PATH.
    ```bash
-   # macOS with Homebrew
-   brew install autodock-vina
-   
-   # Ubuntu/Debian
-   sudo apt-get install autodock-vina
-   
-   # Or download from: http://vina.scripps.edu/
+    which vina
    ```
 
 2. **Python Dependencies**: Install using uv or pip
    ```bash
    # Using uv (recommended)
    uv pip install -e .
-   
-   # Or using pip
-   pip install -e .
    ```
 
 ### Required Dependencies
@@ -49,9 +41,6 @@ A Model Context Protocol (MCP) server for molecular docking simulation using Aut
 ```bash
 # From the project directory
 python server.py
-
-# Or using the module
-python -m molDocking
 ```
 
 ### Available Tools
@@ -141,21 +130,8 @@ config = {
 
 ## MCP Configuration
 
-To use this server with an MCP client, use the following configuration:
+To use this server with an MCP client, use the configuration in [config file](./calude-desktop-config.json)
 
-```json
-{
-  "mcpServers": {
-    "molecular-docking": {
-      "command": "python",
-      "args": ["/path/to/molDocking/server.py"],
-      "env": {
-        "PYTHONPATH": "/path/to/molDocking"
-      }
-    }
-  }
-}
-```
 
 ## File Structure
 
@@ -164,14 +140,15 @@ molDocking/
 ├── README.md
 ├── pyproject.toml
 ├── server.py              # MCP server entry point
-├── molDocking/
-│   ├── __init__.py        # Package initialization
-│   ├── __main__.py        # Module entry point
-│   └── docking.py         # Core docking functionality
-└── ../docking/            # Target protein files
-    └── akt1/
-        ├── config.txt
-        └── receptor.pdbqt
+├── docking/               # Target protein files
+│   └── akt1/
+│       ├── config.txt
+│       └── receptor.pdbqt
+└── molDocking/
+    ├── __init__.py        # Package initialization
+    ├── __main__.py        # Module entry point
+    └── docking.py         # Core docking functionality
+
 ```
 
 ## Troubleshooting
@@ -183,13 +160,6 @@ molDocking/
 3. **Invalid SMILES**: Check SMILES string format
 4. **Target not found**: Verify target exists in configuration
 
-### Logging
-
-The server provides detailed logging. To see debug information:
-
-```python
-import logging
-logging.getLogger('molDocking').setLevel(logging.DEBUG)
 ```
 
 ## Development
