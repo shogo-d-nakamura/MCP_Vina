@@ -1,0 +1,45 @@
+Metadata-Version: 2.4
+Name: molDocking
+Version: 0.1.0
+Summary: 分子ドッキングシミュレーションのためのMCPサーバー
+Author-email: Your Name <your.email@example.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: rdkit
+Requires-Dist: mcp[cli,server]>=1.2.0
+Requires-Dist: httpx
+Requires-Dist: meeko
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+
+# Molecular Docking MCP Server
+
+このパッケージは分子ドッキングシミュレーション用のMCPサーバーを提供します。
+
+## 機能
+
+- SMILESを入力として分子ドッキングを実行
+- 複数のタンパク質ターゲットに対応
+- MCPプロトコルによるAPIの提供
+
+## インストール方法
+
+```bash
+# 開発用インストール
+pip install -e .
+```
+
+## 使用方法
+
+```bash
+# サーバーを起動
+python server.py
+```
+
+## 必要なツール
+
+- Vina - 分子ドッキングシミュレーション
+- scrub.py - SMILES文字列からSDFファイルを生成
+- mk_prepare_ligand.py - SDFファイルからPDBQTファイルを生成

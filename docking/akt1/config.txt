@@ -1,0 +1,8 @@
+receptor = /PATH/TO/molDocking/docking/akt1/receptor.pdbqt
+center_x = 5.9902
+center_y = 3.0140
+center_z = 17.3449
+size_x = 25
+size_y = 25
+size_z = 25
+thread = 8000

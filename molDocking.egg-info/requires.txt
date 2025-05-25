@@ -1,0 +1,9 @@
+rdkit
+mcp[cli,server]>=1.2.0
+httpx
+meeko
+
+[dev]
+pytest>=7.0.0
+black
+isort

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "molecular-docking": {
+      "command": "uv",
+      "args": [
+        "--directory", "/PATH/TO/molDocking",
+        "run", "server.py"
+      ],
+      "env": {
+        "UV_PROJECT_ENVIRONMENT": "/PATH/TO/molDocking/.venv"
+      }
+    }
+  }
+}
