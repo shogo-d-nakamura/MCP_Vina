@@ -139,11 +139,11 @@ To use this server with an MCP client, use the configuration in [config file](./
     "molecular-docking": {
       "command": "uv",
       "args": [
-        "--directory", "/PATH/TO/molDocking",
+        "--directory", "/PATH/TO/MCP_Vina",
         "run", "server.py"
       ],
       "env": {
-        "UV_PROJECT_ENVIRONMENT": "/PATH/TO/molDocking/.venv"
+        "UV_PROJECT_ENVIRONMENT": "/PATH/TO/MCP_Vina/.venv"
       }
     }
   }
